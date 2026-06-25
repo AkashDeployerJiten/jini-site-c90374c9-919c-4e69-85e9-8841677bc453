@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ☀️ Core UI Base Variables (Clean Premium Light Mode) */
+    --background: 0 0% 100%;       /* Pure White Background */
+    --foreground: 222.2 84% 4.9%;  /* Sharp Jet Black Text */
+
+    /* 🗂️ Containers, Cards & Menus */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    /* 💎 Premium Matte Brand Colors */
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    /* 📝 Form Controls & Layout Labels */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* 🔒 Standard Borders & Inputs Grid */
+    --border: 214.3 31.8% 91.4%;  /* Crisp Grey Borders */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    background-color: #ffffff !important;
+    color: #111827 !important; /* Sharp gray-900 readability text */
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* 🛠️ Profile Inputs Globally Forced Visibility (Light Theme) */
+  input, select, textarea {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: #d1d5db !important; /* Proper gray border */
+  }
+
+  input::placeholder {
+    color: #9ca3af !important;
+  }
+
+  /* Labels Optimization */
+  label {
+    color: #374151 !important;
+    font-weight: 500;
+  }
+}
+
+/* ==========================================================================
+   ☀️ SHADCN & NATIVE DROPDOWN CONTENT CRITICAL LIGHT-MODE VISIBILITY FIX
+   ========================================================================== */
+
+/* 1. Global select list options text & background overwrite */
+select, option, optgroup, datalist {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+}
+
+/* 2. Target Shadcn/Radix Floating Content Popover container explicitly */
+[data-radix-select-content],
+[class*="select-content"],
+.select-content {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #e5e7eb !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* 3. Target individual active dropdown items inside the listing box */
+[data-radix-select-item],
+[class*="select-item"],
+.select-item {
+  color: #111827 !important;
+  background-color: transparent !important;
+  cursor: pointer;
+}
+
+/* 4. Hover background state for items */
+[data-radix-select-item]:hover,
+[data-radix-select-item][data-highlighted],
+[class*="select-item"]:hover,
+.select-item:hover {
+  background-color: #f3f4f6 !important; /* Light grey block on hover */
+  color: #000000 !important;
+}
+
+/* 5. Dropdown Main Trigger Box custom selector alignment */
+button[role="combobox"], 
+.select-trigger,
+[data-radix-select-trigger] {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border: 1px solid #d1d5db !important;
+}
+
+/* Hover state for the trigger box */
+button[role="combobox"]:hover {
+  background-color: #f9fafb !important;
+  border-color: #9ca3af !important;
+}
+
+/* Inside select text placeholder color alignment */
+button[role="combobox"] span {
+  color: #111827 !important;
+}
+
+/* Force viewport container to handle white background distribution */
+[data-radix-select-viewport] {
+  background-color: #ffffff !important;
+}
